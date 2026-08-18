@@ -1,9 +1,8 @@
 <div align="center">
 
-# 🧩 Agile Agents
+# Agile Agents
 
 **Une équipe agile d'agents IA pour Claude Code.**
-La définition de l'agile — sans la lourdeur humaine.
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-agents-6f42c1)
 ![Stack](https://img.shields.io/badge/stack-agnostique-2f6f5e)
@@ -15,39 +14,32 @@ La définition de l'agile — sans la lourdeur humaine.
 ---
 
 Tu écris un besoin en langage naturel. L'orchestrateur **pilote tout seul** :
-il raffine, planifie, code, teste et revoit — et ne te sollicite qu'aux **portes
+il raffine, planifie, code, teste et revoit et ne te sollicite qu'aux **portes
 de validation**, via [lavish-axi](https://github.com/kunchenguid/lavish-axi).
 Aucune commande à retenir.
 
-```mermaid
-flowchart LR
-  H([Tu écris un besoin]) --> O{Orchestrateur}
-  O --> PO[PO<br/>US + critères]
-  PO --> A[Architecte<br/>ready + archi]
-  A --> D[Dev ∥<br/>worktree + PR]
-  D --> Q[QA<br/>revue + DoD]
-  Q --> O
-  Q --> R[Rétro<br/>mémoire]
-  O -. porte .-> L[[lavish-axi]]
-  L -. ton retour .-> O
-```
 
 ## Deux plans de communication
 
 | Plan | Comment | Contenu |
 | --- | --- | --- |
-| **IA ↔ IA** | contrats JSON sur le board | terse, structuré, tracé — aucune prose |
-| **Humain ↔ IA** | aux portes agiles, via lavish | tu écris, tu annotes — jamais de commande |
+| **IA ↔ IA** | contrats JSON sur le board | terse, structuré, tracé, aucune prose |
+| **Humain ↔ IA** | aux portes agiles, via lavish | tu écris, tu annotes, jamais de commande |
 
 ## Démarrer — 3 étapes
 
 ```bash
-# 1. Copier ce dossier à la racine de ton projet, puis :
+# 1. Récupère le socle dans ton projet.
+#    degit copie les fichiers SANS l'historique git : c'est ton projet, pas un clone du mien.
+npx degit clemuscle/agile-agents-socle agile-agents-socle
 
-# 2. Installer la porte de validation humaine
+#    Projet déjà existant ? Pose-le directement à la racine :
+#    npx degit clemuscle/agile-agents-socle --force .
+
+# 2. Installe la porte de validation humaine
 npx skills add kunchenguid/lavish-axi --skill lavish
 
-# 3. Adapter le SEUL point spécifique au projet (tests + lint)
+# 3. Adapte le SEUL point spécifique à ta pile (tests + lint)
 $EDITOR scripts/dod.sh
 ```
 
@@ -77,7 +69,7 @@ docs/                 communications.md · conventions.md
 
 ## Conventions Git
 
-Branche longue `main`, travail sur `feature/<US-ID>-<slug>`, commits
+Branche par défaut `main`, travail sur `feature/<US-ID>-<slug>`, commits
 [Conventional Commits](https://www.conventionalcommits.org) référençant l'US,
 PR titrée `<US-ID> <titre>` vers `main`. Détail dans `docs/conventions.md`.
 
@@ -89,7 +81,7 @@ qu'on évite, pas l'agile.
 
 ## Philosophie
 
-On garde ce qui crée de la valeur — séparation intention/exécution, backlog
+On garde ce qui crée de la valeur, séparation intention/exécution, backlog
 priorisé, portes de qualité, flux à WIP limité, boucle d'apprentissage — et on
 jette les rituels qui n'existent que pour synchroniser des humains. Le résultat :
 la même discipline, pilotée par l'IA, en langage naturel.
