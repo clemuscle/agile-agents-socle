@@ -1,0 +1,15 @@
+# Worktrees des agents dev (isolation)
+.worktrees/
+worktrees/
+
+# Dépendances / build
+node_modules/
+dist/
+build/
+
+# Système
+.DS_Store
+*.log
+
+# Artefacts de revue lavish (générés à la volée)
+*.review.html

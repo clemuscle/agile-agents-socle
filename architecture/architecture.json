@@ -1,0 +1,46 @@
+{
+  "system": {
+    "name": "Mon produit",
+    "description": "Architecture de référence — remplace ce contenu par la tienne. Le JSON est l'autorité ; architecture.html en est la vue."
+  },
+  "components": [
+    {
+      "id": "web",
+      "name": "Application web",
+      "responsibility": "Interface utilisateur",
+      "type": "ui",
+      "status": "in_progress",
+      "depends_on": ["auth", "api"],
+      "interfaces": ["HTTP"],
+      "children": [
+        {
+          "id": "auth",
+          "name": "Module d'authentification",
+          "responsibility": "Connexion, sessions, verrouillage",
+          "type": "service",
+          "status": "planned",
+          "depends_on": ["db"],
+          "interfaces": ["login()", "logout()"]
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "name": "API applicative",
+      "responsibility": "Logique métier exposée au web",
+      "type": "service",
+      "status": "planned",
+      "depends_on": ["db"],
+      "interfaces": ["REST /v1"]
+    },
+    {
+      "id": "db",
+      "name": "Base de données",
+      "responsibility": "Persistance",
+      "type": "data",
+      "status": "stable",
+      "depends_on": [],
+      "interfaces": ["SQL"]
+    }
+  ]
+}

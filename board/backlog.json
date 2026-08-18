@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": "US-1",
+      "title": "Connexion utilisateur",
+      "why": "Accéder à son espace",
+      "acceptance_criteria": [
+        "Identifiants valides -> connecté",
+        "Mot de passe invalide -> erreur",
+        "3 échecs -> verrouillage temporaire"
+      ],
+      "status": "backlog",
+      "priority": 1,
+      "component": "auth"
+    }
+  ]
+}
